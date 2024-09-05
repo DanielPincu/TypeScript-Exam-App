@@ -1,0 +1,30 @@
+/* Custom class to force focus styles */
+.force-focus {
+    outline: 1px solid #3b82f6; /* Tailwind's blue-500 color */
+    outline-offset: 1px;
+  }
+  
+  .custom {
+    position: relative;
+    z-index: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.custom::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('src/assets/ddd.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    filter: blur(2px); 
+    z-index: -1;
+}
