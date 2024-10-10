@@ -80,6 +80,7 @@ function updateTodoList() {
       const editInput = document.createElement('input');
       editInput.type = 'text';
       editInput.value = todo.title;
+      editInput.id = 'edit-input';
       editInput.className = 'edit-input text-lg flex-1 text-gray-700 px-2 py-1 border rounded-lg w-full';
       titleElement.appendChild(editInput);
       editInput.focus();
@@ -97,33 +98,65 @@ function updateTodoList() {
     buttonGroup.className = 'flex space-x-2 justify-center';
 
     if (editingTodoId === todo.id) {
-      buttonGroup.append(createButton('Save', 'bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600', () =>
-        saveTodoTitle(todo.id, (titleElement.querySelector('input') as HTMLInputElement).value.trim())
-      ));
-    } else {
-      if (!todo.completed) {
+      const saveButton = createButton(
+          'Save',
+          'bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600',
+          () => saveTodoTitle(todo.id, (titleElement.querySelector('input') as HTMLInputElement).value.trim())
+      );
+      
+      // Set an ID for the button
+      saveButton.id = 'save-button'; // or any unique ID you want to use
+  
+      buttonGroup.append(saveButton);
+  }
+  else {
+    if (!todo.completed) {
         buttonGroup.append(
-          createButton('Mark as Done', 'bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600', () =>
-            toggleTodoProperty(todo.id, 'completed')
-          ),
-          createButton('Edit', 'bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600', () => {
-            editingTodoId = todo.id;
-            updateTodoList();
-          }),
-          createButton(todo.important ? 'Unmark Important' : 'Mark Important', 'bg-blue-500 text-white px-10 py-1 rounded-lg hover:bg-blue-600', () =>
-            toggleTodoProperty(todo.id, 'important')
-          )
+            createButton(
+                'Mark as Done',
+                'bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600',
+                () => toggleTodoProperty(todo.id, 'completed')
+            )
         );
-      } else {
-        buttonGroup.append(createButton('Undo', 'bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600', () =>
-          toggleTodoProperty(todo.id, 'completed')
-        ));
-      }
 
-      buttonGroup.append(createButton('Remove', 'bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600', () =>
-        removeTodoById(todo.id)
-      ));
+        // Create "Edit" button, set the ID, and append it
+        const editButton = createButton(
+            'Edit',
+            'bg-yellow-500 text-white px-3 py-1 rounded-lg hover:bg-yellow-600',
+            () => {
+                editingTodoId = todo.id;
+                updateTodoList();
+            }
+        );
+        editButton.id = 'edit-button'; // Set the ID for "Edit" button
+        buttonGroup.append(editButton);
+
+        buttonGroup.append(
+            createButton(
+                todo.important ? 'Unmark Important' : 'Mark Important',
+                'bg-blue-500 text-white px-10 py-1 rounded-lg hover:bg-blue-600',
+                () => toggleTodoProperty(todo.id, 'important')
+            )
+        );
+    } else {
+        buttonGroup.append(
+            createButton(
+                'Undo',
+                'bg-green-500 text-white px-3 py-1 rounded-lg hover:bg-green-600',
+                () => toggleTodoProperty(todo.id, 'completed')
+            )
+        );
     }
+
+    buttonGroup.append(
+        createButton(
+            'Remove',
+            'bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600',
+            () => removeTodoById(todo.id)
+        )
+    );
+}
+
 
     li.append(titleElement, buttonGroup);
     todoList.appendChild(li);
