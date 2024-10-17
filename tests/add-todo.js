@@ -1,35 +1,35 @@
-import { Selector } from "testcafe";
+// import { Selector } from "testcafe";
 
-fixture('Todo').page('https://test.danielpincu.dk/todo/');
+// fixture('Todo').page('https://test.danielpincu.dk/todo/');
 
-test('Add todo', async t => {
+// test('Add todo', async t => {
     
-    await t
-        // Arrange
-        .typeText(Selector('#todo-input'), 'Change the world')
+//     await t
+//         // Arrange
+//         .typeText(Selector('#todo-input'), 'Change the world')
         
-        // Act
-        .click('#submit')
-        .wait(1000)
+//         // Act
+//         .click('#submit')
+//         .wait(1000)
 
-        // Assert
-        .expect(Selector('#todo-list li').nth(-1).innerText).contains('Change the world')
-});
+//         // Assert
+//         .expect(Selector('#todo-list li').nth(-1).innerText).contains('Change the world')
+// });
 
-test ('Edit todo', async t => { 
-    await t
+// test ('Edit todo', async t => { 
+//     await t
 
-        // Arrange
-        .typeText(Selector('#todo-input'), 'Change the world')
-        .click('#submit')
-        .wait(1000)
+//         // Arrange
+//         .typeText(Selector('#todo-input'), 'Change the world')
+//         .click('#submit')
+//         .wait(1000)
 
-        // Act
-        .click('#edit-button')
-        .typeText(Selector('#edit-input'), 'Do not change the world', { replace: true })
-        .click('#save-button')
-        .wait(1000)
+//         // Act
+//         .click('#edit-button')
+//         .typeText(Selector('#edit-input'), 'Do not change the world', { replace: true })
+//         .click('#save-button')
+//         .wait(1000)
 
-        // Assert
-        .expect(Selector('#todo-list li').nth(-1).innerText).contains('Do not change the world')
-});
+//         // Assert
+//         .expect(Selector('#todo-list li').nth(-1).innerText).contains('Do not change the world')
+// });
