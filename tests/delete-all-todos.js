@@ -1,6 +1,6 @@
 import { Selector } from "testcafe";
 
-fixture('Delete All Todos').page('http://localhost:5173/todo/');
+fixture('Delete All Todos').page('https://test.danielpincu.dk/todo/');
 
 test('Delete all todos', async t => {
 
