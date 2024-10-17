@@ -9,34 +9,28 @@
   </head>
   <body>
     <div class="bg-gray-500 custom h-screen flex items-center justify-center">
-      <div class="container py-32 bg-opacity-90 mx-auto h-screen bg-white p-8 rounded-lg shadow-lg">
-        <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6 py-10 bg-gray-100">Welcome to TaskHub</h1>
-        
-        <!-- Filter buttons -->
-        <div id="filter-buttons" class="flex space-x-2">
-          <button class="filter-btn bg-blue-500 text-white px-3 py-1 rounded-lg" data-filter="all">All</button>
-          <button class="filter-btn bg-blue-500 text-white px-3 py-1 rounded-lg" data-filter="completed">Completed</button>
-          <button class="filter-btn bg-blue-500 text-white px-3 py-1 rounded-lg" data-filter="incomplete">Incomplete</button>
-          <button class="filter-btn bg-blue-500 text-white px-3 py-1 rounded-lg" data-filter="important">Important</button>
-        </div>
-        <br>
-        
-        <!-- Form to add new todos -->
-        <form class="todo-form flex space-x-4 mb-6">
-          <input type="text" id="todo-input" placeholder="Add a new todo" class="flex-1 px-4 py-3 border rounded-lg text-gray-700" />
-          <button id="submit" type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">Add</button>
-        </form>
-        <p id="error-message" class="text-red-500 text-center mb-4 hidden">Please enter a todo item</p>
-
-        <!-- Todo list -->
-        <ul class="todo-list space-y-4" id="todo-list"></ul>
-
-        <!-- Button to delete all todos -->
-        <div id="button-container" class="mt-6 text-center">
-          <button id="delete-all" class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600">Delete All Todos</button>
-        </div>
+    <div class="container py-32 bg-opacity-90 mx-auto h-screen bg-white p-8 rounded-lg shadow-lg"> 
+      <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6 py-10 bg-gray-100">Welcome to TaskHub</h1> 
+      <div id="filter-buttons" class="flex space-x-2">
+        <button class="filter-btn bg-blue-500 text-white px-3 py-1 rounded-lg" data-filter="all">All</button>
+        <button class="filter-btn bg-blue-500 text-white px-3 py-1 rounded-lg" data-filter="completed">Completed</button>
+        <button class="filter-btn bg-blue-500 text-white px-3 py-1 rounded-lg" data-filter="incomplete">Incomplete</button>
+        <button class="filter-btn bg-blue-500 text-white px-3 py-1 rounded-lg" data-filter="important">Important</button>
       </div>
+      <br>
+      
+      
+      <form class="todo-form flex space-x-4 mb-6"> 
+        <input type="text" id="todo-input" placeholder="Add a new todo" class="flex-1 px-4 py-3 border rounded-lg text-gray-700" />
+        <button id="submit" type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">
+          Add
+        </button>
+      </form>
+      <p id="error-message" class="text-red-500 text-center mb-4 hidden">Please enter a todo item</p>
+      <ul class="todo-list space-y-4" id="todo-list"></ul>
     </div>
     <script type="module" src="/src/main.ts"></script>
+  </div>
   </body>
+  
 </html>
