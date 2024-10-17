@@ -62,6 +62,7 @@ function updateTodoList() {
     deleteAllButton.style.display = 'inline-block';  // Show the button if there are todos
   }
 
+  // If no todos exist, show the "No tasks available" message
   if (filteredTodos.length === 0) {
     const message = document.createElement('li');
     message.id = 'no-tasks-message';  // Add ID for TestCafé
