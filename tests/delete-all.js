@@ -1,7 +1,7 @@
 import { Selector } from 'testcafe';
 
 fixture('Todo')
-    .page('http://localhost:5173/todo/');
+    .page('https://test.danielpincu.dk/todo/');
 
 test('Delete all function', async t => {
     const todoInput = Selector('#todo-input');
