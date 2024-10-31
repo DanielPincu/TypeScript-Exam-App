@@ -257,6 +257,35 @@ function initializeFilterButtons() {
   updateFilterButtons();
 }
 
+// Get the container and toggle button elements
+const containerDiv = document.querySelector('.container') as HTMLElement;
+const toggleButton = document.getElementById('toggle') as HTMLButtonElement;
+
+// Load background state from localStorage on page load
+function loadBackgroundState() {
+  const savedBackground = localStorage.getItem('backgroundColor');
+  if (savedBackground) {
+    containerDiv.classList.remove('bg-white', 'bg-black');
+    containerDiv.classList.add(savedBackground);
+  }
+}
+
+// Toggle background color and save the state to localStorage
+toggleButton.addEventListener('click', () => {
+  const isWhiteBackground = containerDiv.classList.contains('bg-white');
+  containerDiv.classList.toggle('bg-white', !isWhiteBackground);
+  containerDiv.classList.toggle('bg-black', isWhiteBackground);
+
+  // Save the new background color state to localStorage
+  const newBackground = isWhiteBackground ? 'bg-black' : 'bg-white';
+  localStorage.setItem('backgroundColor', newBackground);
+});
+
+// Initialize by loading the saved background state
+loadBackgroundState();
+
+
+
 // Initialize the app on load
 initializeFilterButtons();
 updateTodoList();
