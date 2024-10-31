@@ -9,8 +9,14 @@
   </head>
   <body>
     <div class="bg-gray-500 custom h-screen flex items-center justify-center">
-      <div class="container py-32 bg-opacity-90 mx-auto h-screen bg-white p-8 rounded-lg shadow-lg">
+      <div id="container" class="container py-32 bg-white bg-opacity-90 mx-auto h-screen p-8 rounded-lg shadow-lg">
         <h1 class="text-3xl font-semibold text-center text-gray-800 mb-6 py-10 bg-gray-100">Welcome to TaskHub</h1>
+        <div class="flex justify-center">
+          <button id="toggle" class="bg-blue-500 mb-20 text-white px-4 py-2 rounded-lg hover:bg-blue-600 focus:outline-none">
+            Toggle Background
+          </button>
+        </div>
+        
         
         <!-- Filter buttons -->
         <div id="filter-buttons" class="flex space-x-2">
